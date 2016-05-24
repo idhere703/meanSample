@@ -44,3 +44,9 @@ footer p {
 .featuredpic img {
   width: 510px;
 }
+
+
+.complete {
+  text-decoration: line-through;
+  color: #ccc;
+}
