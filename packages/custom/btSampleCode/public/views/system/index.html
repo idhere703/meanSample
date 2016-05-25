@@ -1,11 +1,12 @@
 <section class="welcome container-fluid" data-ng-controller="BtIndexController">
-  <div class="col-md-12 first">Todo App:</div>
+  <div class="jumbotron">
+    <h1>What needs to be done?</h1>
+  </div>
   <div class="col-md-12">
     <form role="form" name="todoForm" ng-submit="addTodo()">
       <div class="form-group">
-        <label>Title:</label>
-        <input name="item" ng-model="newItem" required>
-        <button type="button" class="btn btn-primary" ng-disabled="todoForm.$invalid" type="submit">Submit</button>
+        <input class="new-item" name="item" ng-model="newItem" placeholder="Write more code." required>
+        <button class="btn btn-primary" ng-disabled="todoForm.$invalid" type="submit">Submit</button>
         <button type="button" class="btn btn-danger" ng-click="deleteSelected()">Delete Completed</button>
       </div>
     </form>
@@ -15,7 +16,7 @@
       <li class="list-group-item" ng-repeat="item in todos">
         <input ng-hide="item.edit" type="checkbox" ng-model="item.complete">
         <label ng-hide="item.edit" ng-class="{'complete':item.complete}">{{item.title}}</label>
-        <button ng-hide="item.edit" class="btn btn-primary btn-xs" ng-click="editTodo(item)"><span class="glyphicon glyphicon-pencil"></span></button>
+        <button ng-hide="item.edit" class="btn btn-primary btn-xs" ng-disabled="item.complete" ng-click="editTodo(item)"><span class="glyphicon glyphicon-pencil"></span></button>
         <button ng-hide="item.edit" class="btn btn-danger btn-xs" ng-click="deleteTodo(item)"><span class="glyphicon glyphicon-trash"></span></button>
 
         <input ng-show="item.edit" ng-model="item.title" >
@@ -24,4 +25,13 @@
       </li>
     </ul>
   </div>
+
+
+  <footer ng-show="todos.length" id="footer">
+      <div class="container">
+        <p ng-if="todos.length === 1" class="footer-block">{{todos.length}} item left</p>
+        <p ng-if="todos.length > 1" class="footer-block">{{todos.length}} items left</p>
+     	</div>
+  </footer>
+
 </section>

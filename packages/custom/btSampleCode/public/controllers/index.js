@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.system').controller('BtIndexController', ['$scope', function($scope) {
+angular.module('mean.system').controller('BtIndexController', ['$scope', '$http', function($scope, $http) {
 
   // Vars
   $scope.todos = [];
@@ -45,6 +45,8 @@ angular.module('mean.system').controller('BtIndexController', ['$scope', functio
   $scope.saveTodo = function(item) {
     item.edit = false;
   };
+
+
 
 
 }]);

@@ -44,9 +44,29 @@ footer p {
 .featuredpic img {
   width: 510px;
 }
-
-
 .complete {
   text-decoration: line-through;
   color: #ccc;
+}
+.new-item {
+  min-width:550px;
+}
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.footer-block { margin: 20px 0; }
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
 }
