@@ -26,7 +26,7 @@ module.exports = {
     }
     */
   },
-  hostname: 'http://localhost:3000',
+  hostname: 'http://todos-bunderwood.rhcloud.com/',
   app: {
     name: 'MEAN - A Modern Stack - Production'
   },
