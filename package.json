@@ -54,7 +54,8 @@
     "request": "latest",
     "require-dir": "^0.3.0",
     "shelljs": "latest",
-    "view-helpers": "latest"
+    "view-helpers": "latest",
+    "bower": "^1.7.9"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",
