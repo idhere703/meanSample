@@ -5,17 +5,22 @@
       <div class="form-group">
         <label>Title:</label>
         <input name="item" ng-model="newItem" required>
-        <button ng-disabled="todoForm.$invalid" type="submit">Submit</button>
+        <button type="button" class="btn btn-primary" ng-disabled="todoForm.$invalid" type="submit">Submit</button>
+        <button type="button" class="btn btn-danger" ng-click="deleteSelected()">Delete Completed</button>
       </div>
     </form>
   </div>
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="item in todos">
-        <input type="checkbox" ng-model="item.complete">
-        <label ng-class="{'complete':item.complete}">{{item.title}}</label>
-        <button class="btn btn-primary btn-xs" ng-click="editTodo(item)"><span class="glyphicon glyphicon-pencil"></span></button>
-        <button class="btn btn-danger btn-xs" ng-click="deleteTodo(item)"><span class="glyphicon glyphicon-trash"></span></button>
+        <input ng-hide="item.edit" type="checkbox" ng-model="item.complete">
+        <label ng-hide="item.edit" ng-class="{'complete':item.complete}">{{item.title}}</label>
+        <button ng-hide="item.edit" class="btn btn-primary btn-xs" ng-click="editTodo(item)"><span class="glyphicon glyphicon-pencil"></span></button>
+        <button ng-hide="item.edit" class="btn btn-danger btn-xs" ng-click="deleteTodo(item)"><span class="glyphicon glyphicon-trash"></span></button>
+
+        <input ng-show="item.edit" ng-model="item.title" >
+        <button ng-show="item.edit" class="btn btn-success btn-xs" ng-click="saveTodo(item)">Save</button>
+
       </li>
     </ul>
   </div>

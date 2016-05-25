@@ -9,14 +9,16 @@ angular.module('mean.system').controller('BtIndexController', ['$scope', functio
 
 
   $scope.addTodo = function() {
-    $scope.todos.push({title: $scope.newItem, complete: false, id: $scope.tempId});
+    $scope.todos.push({
+      title: $scope.newItem,
+      complete: false,
+      id: $scope.tempId,
+      edit: false
+    });
+
     $scope.tempId++;
     $scope.newItem = "";
   };
-
-  $scope.editTodo = function() {};
-
-  $scope.getTodo = function() {};
 
   $scope.deleteTodo = function(item) {
     $scope.todos = $scope.todos.filter(function(todo) {
@@ -27,6 +29,22 @@ angular.module('mean.system').controller('BtIndexController', ['$scope', functio
     });
   };
 
+  $scope.deleteSelected = function() {
+    $scope.todos = $scope.todos.filter(function(todo) {
+      // Only return the ones we have completed.
+      if(todo.complete === false) {
+        return todo;
+      }
+    });
+  };
+
+  $scope.editTodo = function(item) {
+    item.edit = true;
+  };
+
+  $scope.saveTodo = function(item) {
+    item.edit = false;
+  };
 
 
 }]);
